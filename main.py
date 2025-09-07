@@ -7,6 +7,8 @@ class ConcursoBandasApp:
         self.ventana = tk.Tk()
         self.ventana.title("Concurso de Bandas - Quetzaltenango")
         self.ventana.geometry("500x300")
+        self.info = tk.Label(self.ventana, text = "")
+        self.info.pack()
 
         self.menu()
 
@@ -32,6 +34,7 @@ class ConcursoBandasApp:
         self.ventana.config(menu=barra)
 
     def inscribir_banda(self):
+        self.info.config(text="")
         ventana_inscripcion = tk.Toplevel(self.ventana)
         ventana_inscripcion.title("Inscribir Banda")
 
@@ -55,14 +58,15 @@ class ConcursoBandasApp:
                     categoria_var.get()
                 )
                 self.concurso.inscribir_banda(banda)
-                tk.messagebox.showinfo("Éxito", "Banda inscrita correctamente")
+                self.info.config(text="Exito, Inscripcion de banda realizada!")
                 ventana_inscripcion.destroy()
             except Exception as e:
-                tk.messagebox.showerror("Error", str(e))
+                self.info.config(text=f"Error {e}")
 
         tk.Button(ventana_inscripcion, text="Guardar", command=guardar).pack(pady=10)
 
     def registrar_evaluacion(self):
+        self.info.config(text="")
         ventana_eval = tk.Toplevel(self.ventana)
         ventana_eval.title("Registrar Evaluación")
 
@@ -83,20 +87,44 @@ class ConcursoBandasApp:
             try:
                 puntajes = {c: int(entradas[c].get()) for c in criterios}
                 self.concurso.registrar_evaluacion(entrada_nombre.get(), puntajes)
-                tk.messagebox.showinfo("Éxito", "Evaluación registrada")
+                self.info.config(text ="Éxito, Evaluación registrada")
+
                 ventana_eval.destroy()
             except Exception as e:
-                tk.messagebox.showerror("Error", str(e))
+                self.info.config(text=f"Error {e}")
 
         tk.Button(ventana_eval, text="Guardar", command=guardar).pack(pady=10)
 
     def listar_bandas(self):
-        print("Se abrió la ventana: Listado de Bandas")
-        tk.Toplevel(self.ventana).title("Listado de Bandas")
+        self.info.config(text="")
+        ventana_listado = tk.Toplevel(self.ventana)
+        ventana_listado.title("Listado de Bandas")
+
+        texto = tk.Text(ventana_listado, width=80, height=20)
+        texto.pack()
+
+        if not self.concurso.bandas:
+            texto.insert(tk.END, "No hay bandas inscritas.\n")
+        else:
+            for banda in self.concurso.bandas.values():
+                texto.insert(tk.END, banda.mostrar_info() + "\n")
 
     def ver_ranking(self):
-        print("Se abrió la ventana: Ranking Final")
-        tk.Toplevel(self.ventana).title("Ranking Final")
+        self.info.config(text="")
+        ventana_ranking = tk.Toplevel(self.ventana)
+        ventana_ranking.title("Ranking Final")
+
+        texto = tk.Text(ventana_ranking, width=80, height=20)
+        texto.pack()
+
+        ranking = self.concurso.ranking()
+        if not ranking:
+            texto.insert(tk.END, "No hay bandas evaluadas aún.\n")
+        else:
+            texto.insert(tk.END, "🏅 Ranking de Bandas:\n\n")
+            for i, banda in enumerate(ranking, start=1):
+                texto.insert(tk.END,
+                             f"{i}. {banda.nombre} ({banda.institucion}) - {banda._categoria} - Total: {banda.total} - Promedio: {banda.promedio:.2f}\n")
 
 
 if __name__ == "__main__":
