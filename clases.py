@@ -69,3 +69,28 @@ class Concurso:
     def ranking(self):
         evaluadas = [b for b in self.bandas.values() if b._puntajes]
         return sorted(evaluadas, key=lambda b: (-b.total, -b.promedio))
+
+    def guardar_en_archivo(self, ruta):
+        with open(ruta, "w", encoding="utf-8") as f:
+            for banda in self.bandas.values():
+                linea = f"{banda.nombre}:{banda.institucion}:{banda._categoria}:"
+                if banda._puntajes:
+                    puntajes_str = ",".join(f"{k}:{v}" for k, v in banda._puntajes.items())
+                    linea += puntajes_str
+                f.write(linea + "\n")
+
+    def cargar_desde_archivo(self, ruta):
+        try:
+            with open(ruta, "r", encoding="utf-8") as f:
+                for linea in f:
+                    partes = linea.strip().split(":")
+                    nombre, institucion, categoria = partes[:3]
+                    banda = BandaEscolar(nombre, institucion, categoria)
+                    if len(partes) == 4 and partes[3]:
+                        puntajes = dict(item.split(":") for item in partes[3].split(","))
+                        puntajes = {k: int(v) for k, v in puntajes.items()}
+                        banda.registrar_puntajes(puntajes)
+                    self.inscribir_banda(banda)
+        except ValueError:
+            pass
+

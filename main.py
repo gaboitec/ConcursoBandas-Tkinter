@@ -4,6 +4,7 @@ from clases import BandaEscolar, Concurso
 class ConcursoBandasApp:
     def __init__(self):
         self.concurso = Concurso("Concurso de Bandas", "2025-09-14")
+        self.concurso.cargar_desde_archivo("bandas.txt")
         self.ventana = tk.Tk()
         self.ventana.title("Concurso de Bandas - Quetzaltenango")
         self.ventana.geometry("500x300")
@@ -58,6 +59,7 @@ class ConcursoBandasApp:
                     categoria_var.get()
                 )
                 self.concurso.inscribir_banda(banda)
+                self.concurso.guardar_en_archivo("bandas.txt")
                 self.info.config(text="Exito, Inscripcion de banda realizada!")
                 ventana_inscripcion.destroy()
             except Exception as e:
@@ -87,8 +89,8 @@ class ConcursoBandasApp:
             try:
                 puntajes = {c: int(entradas[c].get()) for c in criterios}
                 self.concurso.registrar_evaluacion(entrada_nombre.get(), puntajes)
+                self.concurso.guardar_en_archivo("bandas.txt")
                 self.info.config(text ="Éxito, Evaluación registrada")
-
                 ventana_eval.destroy()
             except Exception as e:
                 self.info.config(text=f"Error {e}")
@@ -98,7 +100,7 @@ class ConcursoBandasApp:
     def listar_bandas(self):
         self.info.config(text="")
         ventana_listado = tk.Toplevel(self.ventana)
-        ventana_listado.title("Listado de Bandas")
+        ventana_listado.title("LISTADO DE BANDAS")
 
         texto = tk.Text(ventana_listado, width=80, height=20)
         texto.pack()
@@ -112,7 +114,7 @@ class ConcursoBandasApp:
     def ver_ranking(self):
         self.info.config(text="")
         ventana_ranking = tk.Toplevel(self.ventana)
-        ventana_ranking.title("Ranking Final")
+        ventana_ranking.title("Ranking final")
 
         texto = tk.Text(ventana_ranking, width=80, height=20)
         texto.pack()
@@ -121,7 +123,7 @@ class ConcursoBandasApp:
         if not ranking:
             texto.insert(tk.END, "No hay bandas evaluadas aún.\n")
         else:
-            texto.insert(tk.END, "🏅 Ranking de Bandas:\n\n")
+            texto.insert(tk.END, "RANKING DE BANDAS:\n\n")
             for i, banda in enumerate(ranking, start=1):
                 texto.insert(tk.END,
                              f"{i}. {banda.nombre} ({banda.institucion}) - {banda._categoria} - Total: {banda.total} - Promedio: {banda.promedio:.2f}\n")
