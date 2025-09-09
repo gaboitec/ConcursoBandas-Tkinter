@@ -83,7 +83,7 @@ class Concurso:
         try:
             with open(ruta, "r", encoding="utf-8") as f:
                 for linea in f:
-                    partes = linea.strip().split(":")
+                    partes = linea.strip().split(": ")
                     nombre, institucion, categoria = partes[:3]
                     banda = BandaEscolar(nombre, institucion, categoria)
                     if len(partes) == 4 and partes[3]:

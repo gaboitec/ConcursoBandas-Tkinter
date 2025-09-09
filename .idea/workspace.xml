@@ -1,30 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e1fadac-a6c4-4202-a443-f7f12c8f6990" name="Changes" comment="" />
+    <list default="true" id="0e1fadac-a6c4-4202-a443-f7f12c8f6990" name="Changes" comment="cargar y guardar desde archivos de texto">
+      <change beforePath="$PROJECT_DIR$/.idea/MenuTkinterPythonExc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MenuTkinterPythonExc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clases.py" beforeDir="false" afterPath="$PROJECT_DIR$/clases.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gaboitec&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gaboitec/ConcursoBandas-Tkinter.git&quot;,
+    &quot;accountId&quot;: &quot;e7817c65-81c4-466e-859c-bbeba797bb6f&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="32J7mMM8sfd0L5CI8XnWgoNCPXc" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Yefry\Archivos\PROGRA IV\ConcursoBandas-Tkinter" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-41e8cd69c857-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.26927.90" />
+        <option value="bundled-python-sdk-4c141bd692a7-e2d783800521-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.26927.90" />
       </set>
     </attachedChunks>
   </component>
@@ -36,6 +70,37 @@
       <option name="presentableId" value="Default" />
       <updated>1757126980157</updated>
     </task>
+    <task id="LOCAL-00001" summary="creacion de clases, funciones de registrar evaluacion e inscribir banda">
+      <option name="closed" value="true" />
+      <created>1757220054396</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757220054396</updated>
+    </task>
+    <task id="LOCAL-00002" summary="funciones listar y ranking -&gt; retroalimentacion con mensaje label">
+      <option name="closed" value="true" />
+      <created>1757221651904</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1757221651904</updated>
+    </task>
+    <task id="LOCAL-00003" summary="cargar y guardar desde archivos de texto">
+      <option name="closed" value="true" />
+      <created>1757222699115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757222699115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="creacion de clases, funciones de registrar evaluacion e inscribir banda" />
+    <MESSAGE value="funciones listar y ranking -&gt; retroalimentacion con mensaje label" />
+    <MESSAGE value="cargar y guardar desde archivos de texto" />
+    <option name="LAST_COMMIT_MESSAGE" value="cargar y guardar desde archivos de texto" />
   </component>
 </project>
